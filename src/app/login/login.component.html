@@ -1,0 +1,35 @@
+
+<!-- <form (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" name="username" required ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" #password ngModel>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form> -->
+<form (ngSubmit)="onSubmit(formdata.value)" [formGroup]="formdata" >
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" name="username" required formControlName="username">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" #password formControlName="password">
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<div [hidden]="!is_submited">
+  <h1>Value submitted</h1>
+  Username : {{formdata.controls.username.value}}
+  <br>
+  Password : {{formdata.controls.password.value}}
+</div>
+<br><br><br>
+{{config}}
